@@ -7,6 +7,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 
@@ -22,8 +23,8 @@ public class TestController {
     private RedisService redisService;
 
 
-    @RequestMapping(value = "/dao.do", produces = "application/json; charset=utf-8")
-    public Object testDao(String headKey) throws Exception {
+    @RequestMapping(value = "/dao.do")
+    public Object testDao(@RequestParam(required = false) String headKey) throws Exception {
 
         logger.info("===========test==============");
 
